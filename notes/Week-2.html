@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>TCSS 305</title>
+</head>
+<body>
+  <div class="l-container">
+    <nav class="l-side">
+  <ul>
+    <a href="/index.html"
+         >
+      <li>Welcome</li>
+    </a>
+    
+      <a href="/notes/Week-2.html"
+         
+          class="nav-item-current"
+         >
+        <li>Week 2</li>
+      </a>
+    
+      <a href="/notes/Week-3.html"
+         >
+        <li>Week 3</li>
+      </a>
+    
+      <a href="/notes/Week-4.html"
+         >
+        <li>Week 4</li>
+      </a>
+    
+      <a href="/notes/Week-5.html"
+         >
+        <li>Week 5</li>
+      </a>
+    
+  </ul>
+</nav>
+    <main class="l-main">
+      
+        <h1 class="page-title">Week 2</h1>
+      
+      <h2 id="constructors">Constructors</h2>
+
+<p>Without a constructor, new instances of an object will have its field values
+set to default values. A copy constructor accepts another instance of the object 
+to create another copy of it. Constructors can be made private!</p>
+
+<p>Child objects never inherits constructors from the parent. Always call the 
+constructor of the parent with <code class="highlighter-rouge">super()</code> before writing any other code for the
+child element.</p>
+
+<h2 id="static">Static</h2>
+
+<p>Members that are shared across all instances of an object are <code class="highlighter-rouge">static</code>. This
+means that for each instance, the <code class="highlighter-rouge">static</code> members will be stored in a common 
+location. These values will all be the same for each instance. When you access
+a static member, access it in a static way, i.e., using the <em>class</em> rather than
+a specific <em>instance</em>. You cannot access non-static fields inside a static 
+method. Never declare a field with <code class="highlighter-rouge">static</code> without <code class="highlighter-rouge">final</code>.</p>
+
+<h2 id="final">Final</h2>
+
+<p>Values declared with the keyword <code class="highlighter-rouge">final</code> will always be the values that they
+were declared with. They are constant. Method parameters should always be 
+declared as <code class="highlighter-rouge">final</code>. A <code class="highlighter-rouge">final</code> object reference cannot be changed to refer to a
+different object. Classes declared with <code class="highlighter-rouge">final</code> cannot be extended. A <code class="highlighter-rouge">final</code> 
+method cannot be overridden in a sub-class.</p>
+
+<p>If an object is <code class="highlighter-rouge">final</code>, it cannot be changed to point to another instance, but
+<em>the members themselves can be changed.</em></p>
+
+<h2 id="tostring">toString()</h2>
+
+<p>The default <code class="highlighter-rouge">toString()</code> method looks like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>return getClass().getName() + "@" + Integer.toHexString(hashCode());
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">StringBuilder</code> should be used to build the string representations output by
+<code class="highlighter-rouge">toString()</code> unless it is a single-line concatenation. This is because <code class="highlighter-rouge">String</code>
+is immutable while <code class="highlighter-rouge">StringBuilder</code> is mutable. Modifying a <code class="highlighter-rouge">String</code> actually
+creates a new object to store in memory. This is not efficient.
+<code class="highlighter-rouge">StringBuilder</code> objects should be converted to <code class="highlighter-rouge">String</code> by using its 
+<code class="highlighter-rouge">toString()</code> method.</p>
+
+<h2 id="equals">equals()</h2>
+
+<p>Conditions for a correct <code class="highlighter-rouge">equals()</code> method:</p>
+
+<ul>
+  <li>reflexive</li>
+  <li>symmetric</li>
+  <li>transitive</li>
+</ul>
+
+<p>For the sake of polymorphism, the parameter of an <code class="highlighter-rouge">equals()</code> method should be
+declared as an <code class="highlighter-rouge">Object</code>. Be sure to cast it later when needing to access the
+passed object’s members. If you don’t cast it, you will not be able to access
+values in the object.</p>
+
+<p><em>Never</em> use the <code class="highlighter-rouge">==</code> when comparing floating-point values. Instead, use the 
+<code class="highlighter-rouge">Double.compare()</code> method.</p>
+
+<h2 id="hashcode">hashCode()</h2>
+
+<p>The <code class="highlighter-rouge">hashCode()</code> function is in the <code class="highlighter-rouge">Objects</code> package, which must be imported
+manually.</p>
+
+<p>Be sure to use the @Override before defining methods that are shared with the
+parent such as <code class="highlighter-rouge">toString()</code> or <code class="highlighter-rouge">hashCode()</code>. Whenever two objects are equal, 
+the hash codes should also be equal because the same fields to check for 
+equality are the same fields to check for their hash codes.</p>
+
+<h2 id="other-important-notes">Other Important Notes</h2>
+
+<p><code class="highlighter-rouge">hashCode()</code> helps identify addresses</p>
+
+<p><code class="highlighter-rouge">Object.requireNonNull(someObject)</code> prevents errors when trying to access 
+members of a null object.</p>
+
+<p>Any variable that is not changed within its scope, it should be declared with 
+<code class="highlighter-rouge">final</code>.</p>
+
+<p>Setting one object as pointing to another will return true when comparing the
+two with the <code class="highlighter-rouge">==</code> operator.</p>
+
+<p>Always disconnect from the SVN before renaming.</p>
+
+    </main>
+  </div>
+</body>
+</html>

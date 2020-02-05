@@ -1,0 +1,51 @@
+/* Variables */
+/* Base */
+* { margin: 0; padding: 0; background-color: transparent; color: inherit; text-decoration: none; font-size: 18px; font-family: "Arial", sans-serif; vertical-align: baseline; line-height: 1; }
+
+h1 { font-size: 2rem; margin-bottom: 1rem; }
+
+h2 { font-size: 1.5rem; margin: 1.5rem 0 0.75rem 0; padding-top: 1.5rem; border-top: 1px solid #db0a62; }
+
+h2:first-of-type { margin-top: 0; padding-top: 0; border: 0; }
+
+h3 { font-size: 1.25rem; }
+
+h4, h5, h6 { font-size: 1.1rem; }
+
+p { line-height: 1.25; }
+
+p + p { margin-top: 1rem; }
+
+li { line-height: 1.25; }
+
+strong { font-weight: bold; }
+
+code { font-family: "consolas", monospace; background-color: #e3e0e0; }
+
+pre { padding: 0.5rem; margin: 1rem 0; background-color: #e3e0e0; border-bottom: 1px solid #888; line-height: 1.25rem; }
+
+/* Layout */
+.l-side { position: fixed; width: 12rem; height: 100vh; background-color: #333; color: #ffffff; }
+
+.l-main { position: absolute; left: 12rem; padding: 1rem; background-color: #ffffff; }
+
+/* Modules */
+.l-side ul { list-style-type: none; border-bottom: 1px solid #666; }
+
+.l-side li { padding: 1rem; border-top: 1px solid #666; border-bottom: 1px solid #111; }
+
+.l-side li:hover { background-color: #555; text-shadow: 1px 1px solid #111; border-bottom: 1px solid #555; }
+
+.nav-item-current { text-decoration: underline; }
+
+.page-title { background-color: #db0a62; color: #ffffff; margin: -1rem -1rem 1rem -1rem; padding: 1rem; }
+
+.l-main ul { margin: 1rem 0; }
+
+.l-main li { margin-left: 1rem; }
+
+.l-main a { text-decoration: underline; color: #db0a62; }
+
+.l-main a:hover { text-decoration: none; }
+
+/*# sourceMappingURL=styles.css.map */

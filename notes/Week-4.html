@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>TCSS 305</title>
+</head>
+<body>
+  <div class="l-container">
+    <nav class="l-side">
+  <ul>
+    <a href="/index.html"
+         >
+      <li>Welcome</li>
+    </a>
+    
+      <a href="/notes/Week-2.html"
+         >
+        <li>Week 2</li>
+      </a>
+    
+      <a href="/notes/Week-3.html"
+         >
+        <li>Week 3</li>
+      </a>
+    
+      <a href="/notes/Week-4.html"
+         
+          class="nav-item-current"
+         >
+        <li>Week 4</li>
+      </a>
+    
+      <a href="/notes/Week-5.html"
+         >
+        <li>Week 5</li>
+      </a>
+    
+  </ul>
+</nav>
+    <main class="l-main">
+      
+        <h1 class="page-title">Week 4</h1>
+      
+      <h2 id="testing">Testing</h2>
+
+<p>There do not exist “software testers” anymore. Testing is the developer’s job.</p>
+
+<p>There are three main kinds of testing:</p>
+
+<ul>
+  <li>Unit testing</li>
+  <li>Integration testing</li>
+  <li>System testing (which can be devided into function and performance testing)</li>
+</ul>
+
+<p><em>Blackbox testing</em> tests only input and output while <em>whitebox testing</em>
+tests each line and focuses on internal states of objects. Another way of 
+choosing tests is <em>path testing</em>, which is trying to use test input that will
+pass through each path in the code. This is a form of whitebox testing.</p>
+
+<p>Unit testing is done using <strong>JUnit</strong>. The version used in class is version 4, 
+but this is not the current version. Test cases are made by making methods that
+are preceded by specific annotations, which can include the following:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">@Test</code> marks an instance method as a test case. They must be public.</li>
+  <li><code class="highlighter-rouge">@Before</code> marks an instance method so that it gets run once before every test 
+          method is run.</li>
+  <li><code class="highlighter-rouge">@After</code> marks an instance method so that it gets to run once after every test
+         method is run.</li>
+</ul>
+
+<p>Import JUnit with</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import static org.junit.Assert.*;
+</code></pre></div></div>
+
+<p>Follow this procedure when writing a test class:</p>
+
+<ol>
+  <li>Declare a private instance of the object.</li>
+  <li>Initialize it in the setup method.</li>
+  <li>Write the test case.</li>
+</ol>
+
+<p>When testing for an exception, state this with the <code class="highlighter-rouge">@Test</code> tag:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Test(expected = IllegalArgumentException.class)
+</code></pre></div></div>
+
+<p>To write a test case for an <code class="highlighter-rouge">equals</code> method, you would actually write <em>two</em>
+methods. The first is if the method returns positive and the second is if 
+the method returns negative. It returns positive if the object being
+compared is itself or if the object has the same fields. It returns negative if
+the object being compared is null, if it has different values, or if the objects
+are different classes.</p>
+
+<p>When testing the <code class="highlighter-rouge">hashCode</code> method, check if it is equal to the <code class="highlighter-rouge">Objects.hash</code>
+output. Also test that, if the objects are equal, the hashcodes are equal.</p>
+
+<h2 id="assertions">Assertions</h2>
+
+<p>An assertion can either pass or fail. If it passes, the method returns with no
+effect. If it fails, an error is thrown.</p>
+
+<p><code class="highlighter-rouge">assertEquals("Fail message", Object expected, Object actual)</code> takes two objects or types and
+checks to see if they are equivalent. If you want to check two floats, you can
+pass a third double as an argument, which is the “tolerance”, i.e., the allowed
+distance between the two floats. Here are some other assertion methods:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">assertNotSame</code></li>
+  <li><code class="highlighter-rouge">assertNull</code></li>
+  <li><code class="highlighter-rouge">assertTrue</code></li>
+  <li><code class="highlighter-rouge">assertFalse</code></li>
+  <li><code class="highlighter-rouge">fail</code></li>
+</ul>
+
+<p>When writing test cases, do not make them too simple. You must try to cover all
+possible cases. The test cases should cover 100% of the class being tested. Each
+test case should only test one functionality. All test cases should have
+Javadoc.</p>
+
+<h2 id="other-important-notes">Other Important Notes</h2>
+
+<p>First disconnect code from SVN, then rename the project, then commit it. Do this
+every time you have a new assignment.</p>
+
+    </main>
+  </div>
+</body>
+</html>

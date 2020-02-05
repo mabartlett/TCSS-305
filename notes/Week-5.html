@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>TCSS 305</title>
+</head>
+<body>
+  <div class="l-container">
+    <nav class="l-side">
+  <ul>
+    <a href="/index.html"
+         >
+      <li>Welcome</li>
+    </a>
+    
+      <a href="/notes/Week-2.html"
+         >
+        <li>Week 2</li>
+      </a>
+    
+      <a href="/notes/Week-3.html"
+         >
+        <li>Week 3</li>
+      </a>
+    
+      <a href="/notes/Week-4.html"
+         >
+        <li>Week 4</li>
+      </a>
+    
+      <a href="/notes/Week-5.html"
+         
+          class="nav-item-current"
+         >
+        <li>Week 5</li>
+      </a>
+    
+  </ul>
+</nav>
+    <main class="l-main">
+      
+        <h1 class="page-title">Week 5</h1>
+      
+      <h2 id="review-for-test-1">Review for Test 1</h2>
+
+<p>You can bring one textbook or one page of Java syntaxes. These should only 
+contain the name of the method and its parameters (the method signatures). You 
+can bring only one or the other, but not both.</p>
+
+<p><code class="highlighter-rouge">Hashcode</code> <em>helps</em> to determine where an object is stored. Imagine a <code class="highlighter-rouge">hashmap</code>
+as an array of objects that each point to “buckets.” The <code class="highlighter-rouge">hashcode</code> helps determine
+which “bucket” an object should be placed in.</p>
+
+<p>For <em>primitives</em>, the <code class="highlighter-rouge">==</code> operator has the same effect as the <code class="highlighter-rouge">equals</code> method.
+Otherwise, the two are entirely different.</p>
+
+<p>An <code class="highlighter-rouge">array</code> has a fixed size, but not an <code class="highlighter-rouge">arraylist</code>.</p>
+
+<p>The <code class="highlighter-rouge">containsValue()</code> method of hashMap cheks if a given “value” is present in 
+the <code class="highlighter-rouge">hashmap</code>. You cannot loop through a <code class="highlighter-rouge">hashmap</code> with a normal <code class="highlighter-rouge">for</code> loop. You
+have to use an <code class="highlighter-rouge">iterator</code>. Remember you cannot use the same <code class="highlighter-rouge">iterator</code> to
+iterate over the same map unless you re-initialize it.</p>
+
+<p>The constructor method should be as simple as possible. It is best not to call
+any other methods. This is because the <em>only</em> purpose of the constructor is to initialize 
+fields. Constructors do not always need to be private. A private constructor is 
+used for utility classes. The very first statement of a child class constructor
+should be <code class="highlighter-rouge">super(arguments)</code>.</p>
+
+<p>Public members can be accessed anywhere, even outside the package. Protected
+members an be accessed outside the package only if it is in a sub-class.</p>
+
+<p>Final classes cannot be extended. Final methods cannot be overridden.</p>
+
+<p>Static members are tied to a class, but not the individual instances of the
+class. Inside a static method, you can only access the static fields. Static 
+variables are common to all objects of the class.</p>
+
+<p>All test cases are public methods whose declarations are preceded by the <code class="highlighter-rouge">@Test</code>
+tag. Methods that are executed before every test method are declared with the 
+<code class="highlighter-rouge">@Before</code>. <code class="highlighter-rouge">assertSame</code> compares memory addresses while <code class="highlighter-rouge">assertEquals</code> uses
+the <code class="highlighter-rouge">equals()</code> method.</p>
+
+<p>Be sure to cast the object when comparing them with the <code class="highlighter-rouge">equals()</code> method. 
+<code class="highlighter-rouge">equals()</code> tests for four conditions:</p>
+
+<ul>
+  <li>If the two objects are the same instance.</li>
+  <li>If the two objects are the same class.</li>
+  <li>If the object that was passed is null.</li>
+  <li>If the two objects have the same field values.</li>
+</ul>
+
+<p>Use <code class="highlighter-rouge">Double.compare(a, b)</code> to compare two doubles.</p>
+
+<p>Remember that <code class="highlighter-rouge">BigDecimal</code> is much more accurate than <code class="highlighter-rouge">double</code> or <code class="highlighter-rouge">float</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>final BigDecimal bd1 = new BigDecimal("123.456");
+bd1.setScale(3, RoundingMode.CEILING);
+</code></pre></div></div>
+
+<h2 id="inheritance">Inheritance</h2>
+
+<p>Java can only extend classes once. It does not support multiple inheritance. The child
+class does not inherit the constructor of the parent.</p>
+
+<p><code class="highlighter-rouge">instanceOf</code> checks if a particular class is a sub-class of a parent. It returns
+a boolean value. <code class="highlighter-rouge">null instanceOf x</code> always returns false.</p>
+
+<p>The keyword <code class="highlighter-rouge">super</code> refers to the super-class. Members of a parent class need
+not be accessed with <code class="highlighter-rouge">super</code>. By default, Java calls the
+parameterless constructor of a parent class. If the parent class has a 
+parameterized constructor and you do not call <code class="highlighter-rouge">super</code>, it will throw an error.</p>
+
+<p><strong>Method Overloading</strong> refers to writing multiple versions of a method that each
+have different parameters. <strong>Method Overriding</strong> refers to reimplementing a
+method of a parent class. Be sure to preced overridden methods with the tag
+<code class="highlighter-rouge">@Override</code>. The method signatures must be different for overridden methods.</p>
+
+<h2 id="other-important-notes">Other Important Notes</h2>
+
+<p>Do not submit <em>any</em> code with warnings. Any code with any warnings will lose
+points.</p>
+
+    </main>
+  </div>
+</body>
+</html>

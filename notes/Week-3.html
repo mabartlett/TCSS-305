@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>TCSS 305</title>
+</head>
+<body>
+  <div class="l-container">
+    <nav class="l-side">
+  <ul>
+    <a href="/index.html"
+         >
+      <li>Welcome</li>
+    </a>
+    
+      <a href="/notes/Week-2.html"
+         >
+        <li>Week 2</li>
+      </a>
+    
+      <a href="/notes/Week-3.html"
+         
+          class="nav-item-current"
+         >
+        <li>Week 3</li>
+      </a>
+    
+      <a href="/notes/Week-4.html"
+         >
+        <li>Week 4</li>
+      </a>
+    
+      <a href="/notes/Week-5.html"
+         >
+        <li>Week 5</li>
+      </a>
+    
+  </ul>
+</nav>
+    <main class="l-main">
+      
+        <h1 class="page-title">Week 3</h1>
+      
+      <h2 id="objects-class">Objects Class</h2>
+
+<p><code class="highlighter-rouge">java.util.Objects</code> contains helpful methods for objects. Note that this is
+different from the class that is simply named <code class="highlighter-rouge">Object</code>. <code class="highlighter-rouge">Object.equals(P1, P2)</code>
+is the same as <code class="highlighter-rouge">P1.equals(P2)</code>. <code class="highlighter-rouge">Arrays.deepEquals(theObject1, theObject2)</code> 
+performs a <strong>deep equals</strong> operation, i.e., rather than comparing the two
+objects’ memory locations, the <em>data</em> contained in the two objects are
+compared. The function <code class="highlighter-rouge">requireNonNull()</code> of the Objects class verifies that 
+the passed object is not null.</p>
+
+<h2 id="string-format">String Format</h2>
+
+<p>If you have a string you want to format, use the <code class="highlighter-rouge">String.format()</code> method. The
+first parameter is the locale, i.e., the country. For example, it could be 
+<code class="highlighter-rouge">Locale.UK</code> or <code class="highlighter-rouge">Locale.GERMAN</code>. Remember to import <code class="highlighter-rouge">java.util.Locale</code>.</p>
+
+<p>The second parameter is the forma, the string format.</p>
+
+<p>The third parameter is the string itself being passed with some of the following
+string format specifiers:</p>
+
+<ul>
+  <li>%s    string</li>
+  <li>%f    floating point number</li>
+  <li>%.6f  floating point number with 6 decimal points</li>
+  <li>%d    integer</li>
+  <li>%15d  integer of length 15 (spaces are prepended)</li>
+  <li>%015d integer of length 15 (zeroes are prepended)</li>
+</ul>
+
+<p>The parameters after that are data being put into the string.</p>
+
+<h2 id="number-format">Number Format</h2>
+
+<p>Numbers can be formatted just like strings:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NumberFormat.getInstance(Locale.US).format(myNumber);
+</code></pre></div></div>
+
+<p>If you want to print it like a currency, use the following code:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NumberFormat.getCurrencyInstance(Locale.US);
+</code></pre></div></div>
+
+<p>Remember to import <code class="highlighter-rouge">java.text.NumberFormat</code>.</p>
+
+<h2 id="big-decimal">Big Decimal</h2>
+
+<p>When working with things like currencies, it is better to use <code class="highlighter-rouge">BigDecimal</code>.
+It is an arbitrary precision integer + . + 32 bit integeger representing the
+number of digits after the decimal point. It is more accurate than a float or
+double. It is declared like so:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BigDecimal bd1 = new BigDecimal("0.06");
+</code></pre></div></div>
+
+<p>Operations on a <code class="highlighter-rouge">BigDecimal</code> are performed by using methods of its class like
+these:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">bd1.add(bd1)</code></li>
+  <li><code class="highlighter-rouge">bd1.subtract(bd1)</code></li>
+  <li><code class="highlighter-rouge">bd1.multiply(bd1)</code></li>
+  <li><code class="highlighter-rouge">bd1.divide(bd1)</code></li>
+  <li><code class="highlighter-rouge">bd1.pow(2)</code></li>
+  <li><code class="highlighter-rouge">bd1.negate()</code></li>
+</ul>
+
+<p><code class="highlighter-rouge">BigDecimal.valueOf(bd)</code> is an important method. Another one is 
+<code class="highlighter-rouge">bd1.setScale(3, RoundingMode.CEILING)</code>, The <strong>rounding mode</strong> can also be
+floor.</p>
+
+<h2 id="exception-handling">Exception Handling</h2>
+
+<p>Exception indicates conditions that a reasonable application might try to catch.
+<strong>Checked exceptions</strong> occur at <em>compiler</em> time, such as <code class="highlighter-rouge">FileNotFound Exception</code>
+while reading a file. An <strong>unchecked exception</strong> occurs at <em>execution</em> time, such as
+<code class="highlighter-rouge">ArrayIndexOutOfBounds Exception</code>. Catching exceptions are done like so:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try {
+    // Code
+} catch (final Exception e) {
+    System.out.println(e);
+} catch (final IllegalArgumentException | NullPointerException e) {
+    System.out.println(e);
+} finally {
+    // This code is always executed whether or not a catch block is executed
+}
+</code></pre></div></div>
+
+<p>Some methods in the <code class="highlighter-rouge">Exception</code> class include:</p>
+
+<ul>
+  <li>getMessage()</li>
+  <li>printStackTrace()</li>
+  <li>toString()</li>
+</ul>
+
+<p>Implicitly throwing an error involves using the <code class="highlighter-rouge">Objects.requireNotNull()</code> 
+method, while explicitly throwing an exception uses the code <code class="highlighter-rouge">throw new 
+IllegalArgumentException()</code>. Here’s an example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>this.myPoint = Objects.requireNonNull(theOtherObject).myPoint;
+</code></pre></div></div>
+
+<p>You can define your own exception class by extending <code class="highlighter-rouge">Exception</code>. Always be sure
+to include a <code class="highlighter-rouge">toString()</code> method.</p>
+
+<h2 id="input-and-output">Input and Output</h2>
+
+<p><strong>Streams</strong> are sequences of data. Byte streams read/write 1 byte at a time and 
+character streams read/write 2 bytes at at time. There are 3 standard streams
+taht are automatically opened (and closed) by the OS:</p>
+
+<ul>
+  <li>Standard Input (System.in)</li>
+  <li>Standard Output (System.out)</li>
+  <li>Standard Error (System.err)</li>
+</ul>
+
+<p><code class="highlighter-rouge">System.err</code> is used in almost the same way <code class="highlighter-rouge">System.out</code> is.</p>
+
+<h2 id="other-important-notes">Other Important Notes</h2>
+
+<p>Any method of an object that is present in its parent class must be preceeded
+by the symbole <code class="highlighter-rouge">@Override</code>. This would be for methods like <code class="highlighter-rouge">equals()</code> or 
+<code class="highlighter-rouge">toString()</code>.</p>
+
+<p>Final classes cannot be extended.</p>
+
+<p>Whenever the constructor is private, the class is called a <strong>utility class</strong>.</p>
+
+<p>Hash map items are not in any particular order.</p>
+
+<p>Iterators must iterate a map’s key set, not the map itself.</p>
+
+<p>Don’t surround the exceptions in assignment 1 with a try/catch block. Simply
+throw them.</p>
+
+<p><code class="highlighter-rouge">FileOutputStream()</code> has two parameters. The first is the file, and the second 
+is a boolean value representing whether contents are being appended to the file.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>final String workingDirectory = System.getProperty("user.dir");
+</code></pre></div></div>
+
+<p>Remember to close any input and output files! They must also be closed in the
+correct order.</p>
+
+<p><code class="highlighter-rouge">BufferedWriter</code> writes text. You can write more than one byte at a time with
+it. <code class="highlighter-rouge">BufferedReader</code> reads text in the same way.</p>
+
+    </main>
+  </div>
+</body>
+</html>
