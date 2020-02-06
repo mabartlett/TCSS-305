@@ -22,12 +22,12 @@ strong { font-weight: bold; }
 
 code { font-family: "consolas", monospace; background-color: #e3e0e0; }
 
-pre { padding: 0.5rem; margin: 1rem 0; background-color: #e3e0e0; border-bottom: 1px solid #888; line-height: 1.25rem; }
+pre { padding: 0.5rem; margin: 1rem 0; background-color: #e3e0e0; border-bottom: 1px solid #888; line-height: 1.25rem; overflow-x: auto; }
 
 /* Layout */
-.l-side { position: fixed; width: 12rem; height: 100vh; background-color: #333; color: #ffffff; }
+.l-side { position: fixed; box-sizing: border-box; width: 12rem; height: 100vh; background-color: #333; color: #ffffff; }
 
-.l-main { position: absolute; left: 12rem; padding: 1rem; background-color: #ffffff; }
+.l-main { position: absolute; left: 12rem; padding: 1rem; max-width: calc(100% - 12rem); box-sizing: border-box; background-color: #ffffff; }
 
 /* Modules */
 .l-side ul { list-style-type: none; border-bottom: 1px solid #666; }

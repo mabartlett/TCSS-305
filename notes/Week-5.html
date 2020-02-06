@@ -53,7 +53,7 @@ can bring only one or the other, but not both.</p>
 as an array of objects that each point to “buckets.” The <code class="highlighter-rouge">hashcode</code> helps determine
 which “bucket” an object should be placed in.</p>
 
-<p>For <em>primitives</em>, the <code class="highlighter-rouge">==</code> operator has the same effect as the <code class="highlighter-rouge">equals</code> method.
+<p>For <em>primitive data types</em>, the <code class="highlighter-rouge">==</code> operator has the same effect as the <code class="highlighter-rouge">equals</code> method.
 Otherwise, the two are entirely different.</p>
 
 <p>An <code class="highlighter-rouge">array</code> has a fixed size, but not an <code class="highlighter-rouge">arraylist</code>.</p>
@@ -104,7 +104,8 @@ bd1.setScale(3, RoundingMode.CEILING);
 <h2 id="inheritance">Inheritance</h2>
 
 <p>Java can only extend classes once. It does not support multiple inheritance. The child
-class does not inherit the constructor of the parent.</p>
+class does not inherit the constructor of the parent. A child cannot access the 
+private fields of the parent class.</p>
 
 <p><code class="highlighter-rouge">instanceOf</code> checks if a particular class is a sub-class of a parent. It returns
 a boolean value. <code class="highlighter-rouge">null instanceOf x</code> always returns false.</p>
@@ -116,13 +117,59 @@ parameterized constructor and you do not call <code class="highlighter-rouge">su
 
 <p><strong>Method Overloading</strong> refers to writing multiple versions of a method that each
 have different parameters. <strong>Method Overriding</strong> refers to reimplementing a
-method of a parent class. Be sure to preced overridden methods with the tag
-<code class="highlighter-rouge">@Override</code>. The method signatures must be different for overridden methods.</p>
+method of a parent class. Be sure to precede overridden methods with the tag
+<code class="highlighter-rouge">@Override</code>, but this is not necessary to compile and run. The method 
+signatures must be different for overridden methods. If a child shares a method
+name with a parent, but the method signatures are different, this is an 
+<em>overloaded</em> method, <em>not</em> an overridden one.</p>
+
+<h2 id="abstract-classes">Abstract Classes</h2>
+
+<p><strong>Abstract classes</strong> are classes for which you cannot create an object.
+The purpose of an abstract class is for implementation by <em>child classes</em>, since
+abstract classes cannot be instantiated directly. They are
+defined with the keyword <code class="highlighter-rouge">abstract</code>. Abstract classes can have abstract methods,
+which are methods with no function body. Whenever a child inherits from an
+abstract class, it should implement the abstract function. An abstract class can
+look like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public abstract class AbstractAnimal {
+
+    public void walk() {
+        System.out.println("Animal walks.");
+    }
+
+    public void walk(final String theAnimal) {
+        System.out.println(theAnimal + " walks.");
+    }
+
+    public abstract void talk();
+    
+}
+</code></pre></div></div>
+
+<p>Its sub-class can look like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Cat extends AbstractAnimal {
+
+    public Cat(final String theName) {
+        super(theName);
+    }
+
+    public void talk() {
+        System.out.println("Meow!");
+    }
+    
+}
+</code></pre></div></div>
 
 <h2 id="other-important-notes">Other Important Notes</h2>
 
 <p>Do not submit <em>any</em> code with warnings. Any code with any warnings will lose
 points.</p>
+
+<p><code class="highlighter-rouge">printOptions()</code> in assignment 3 should only print the vehicles available for
+renting. No vehicles currently being rented should appear.</p>
 
     </main>
   </div>
