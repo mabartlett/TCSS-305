@@ -8,8 +8,9 @@
 </head>
 <body>
   <div class="l-container">
-    <nav class="l-side">
-  <ul>
+    <nav id="Nav" class="l-side" data-show-list="false">
+  <button id="NavButton" class="nav-button">&#8801;</button>
+  <ul id="NavList" class="nav-list">
     <a href="/TCSS-305/index.html"
          
           class="nav-item-current"
@@ -53,7 +54,7 @@ everybody would benefit from taking a peak at my notes. A good portion of it is
 copied from the lecture slides and the rest of it is sloppy as all hell, but 
 hey, it's free!</p>
 
-<p>Click one of the links in the navigation bar along the left to start studying.</p>
+<p>Click one of the links in the navigation bar to start studying.</p>
 
 <p>This website, like the school quarter that produced it, is still unfinished.
 in addition to adding more notes, I will be implementing a more appropriate
@@ -68,13 +69,8 @@ format.
 
 <p>Good luck on your exams and <span title="Rise of Skywalker was really bad.">
 may the Force be with you.</span></p>
-
-<script>
-  var s = "SGVsbG8sIGN1cmlvdXMuIEknbSBhZnJhaWQgeW91IHdvbid0IGZpbmQgYW55dGhpbmcg"
-          + "aGVyZSwgYnV0IEkgYXBwcmVjaWF0ZSB5b3VyIGVudGh1c2lhc20u";
-  console.log(atob(s));
-</script>
     </main>
   </div>
+  <script src="/TCSS-305/script.js"></script>
 </body>
 </html>
