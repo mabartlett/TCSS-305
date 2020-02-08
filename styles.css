@@ -20,7 +20,7 @@ li { line-height: 1.25; }
 
 strong { font-weight: bold; }
 
-code { font-family: "consolas", monospace; background-color: #e3e0e0; }
+code { font-family: "consolas", monospace; background-color: #e3e0e0; overflow-x: auto; }
 
 pre { padding: 0.5rem; margin: 1rem 0; background-color: #e3e0e0; border-bottom: 1px solid #888; line-height: 1.25rem; overflow-x: auto; }
 
