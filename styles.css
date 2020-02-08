@@ -51,7 +51,8 @@ pre { padding: 0.5rem; margin: 1rem 0; background-color: #e3e0e0; border-bottom:
 .l-main a:hover { text-decoration: none; }
 
 /* Smaller Viewports */
-@media screen and (max-width: 840px) { .l-side { left: 0; top: 0; width: 100%; height: auto; z-index: 100; }
+@media screen and (max-width: 840px) { * { font-size: 16px; }
+  .l-side { left: 0; top: 0; width: 100%; height: auto; z-index: 100; }
   .nav-button { display: inline-block; float: right; margin-right: 0.5rem; padding: 0.125rem; padding-right: 0.25rem; border: 0; border-top: 2px solid transparent; font-size: 2rem; }
   .l-side[data-show-list="false"] .nav-list { display: none; }
   .l-side[data-show-list="true"] .nav-list { display: block; }
