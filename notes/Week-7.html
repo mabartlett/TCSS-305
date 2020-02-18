@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/TCSS-305/styles.css" />
+  <title>TCSS 305</title>
+</head>
+<body>
+  <div class="l-container">
+    <nav id="Nav" class="l-side" data-show-list="false">
+  <button id="NavButton" class="nav-button">&#8801;</button>
+  <ul id="NavList" class="nav-list">
+    <a href="/TCSS-305/index.html"
+         >
+      <li>Welcome</li>
+    </a>
+    
+      <a href="/TCSS-305/notes/Week-2.html"
+         >
+        <li>Week 2</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-3.html"
+         >
+        <li>Week 3</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-4.html"
+         >
+        <li>Week 4</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-5.html"
+         >
+        <li>Week 5</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-6.html"
+         >
+        <li>Week 6</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-7.html"
+         
+          class="nav-item-current"
+         >
+        <li>Week 7</li>
+      </a>
+    
+  </ul>
+</nav>
+    <main class="l-main">
+      
+        <h1 class="page-title">Week 7</h1>
+      
+      <h2 id="gui-components">GUI Components</h2>
+
+<p>All GUI components need a <code class="highlighter-rouge">JFrame</code> object onto which the components will be
+displayed. Here is an example of creating a <code class="highlighter-rouge">JFrame</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>final JFrame window = new JFrame("Window Title");
+window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+window.setSize(640, 480);
+window.setVisible(true);
+window.setLayout(null);
+</code></pre></div></div>
+
+<p><strong>Panels</strong> are added to group components. You can add components to either the
+frame or to the panel with the <code class="highlighter-rouge">add(Component)</code> method. We set bounds of a
+component by using the <code class="highlighter-rouge">setBounds(x, y, width, height)</code> method.</p>
+
+<p>A <strong>label</strong> is a String that’s displayed somewhere for information or
+description. You cannot edit it. Similar to a label is a <code class="highlighter-rouge">JTextField</code>, which 
+allows for editing. A JTextField has multiple lines. For <code class="highlighter-rouge">JCheckBox</code>es, each
+can be checked or unchecked. Among a group of <code class="highlighter-rouge">JRadioButton</code>s, only one should
+be made selectable. This feature is not native to JRadioButton. You have to code
+it yourself!</p>
+
+<p>Set layout to <code class="highlighter-rouge">null</code> for all containers unless you are using a layout. Setting
+it to <code class="highlighter-rouge">null</code> means you have to use <strong>absolute positioning</strong> for all components.</p>
+
+<p>There are several types of <code class="highlighter-rouge">JOptionPane</code>s . The first is <code class="highlighter-rouge">showMessageDialog</code>,
+which simply dislays a message. The second is <code class="highlighter-rouge">showConfirmDialog</code>, which 
+displays a message and the buttons “yes”, “no”, and “cancel.” The third
+is <code class="highlighter-rouge">showInputDialog</code>, which displays a message as well as a text field for the 
+user to input text. The first argument for <code class="highlighter-rouge">JOptionPane</code> should be the JFrame
+object or else an error will be thrown.</p>
+
+<h2 id="layout-managers">Layout Managers</h2>
+
+<p>Absolute positioning is problematic and time-consuming, so we use the 
+<code class="highlighter-rouge">setLayout(LayoutManager)</code> method to set a <strong>layout manager</strong>. Here are the 
+<code class="highlighter-rouge">LayoutManager</code>s:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">BorderLayout</code>, which divides the container into 5 regions: NORTH, SOUTH, WEST,
+EAST, CENTER (all of which are constants of BorderLayout).</li>
+  <li><code class="highlighter-rouge">GridLayout</code></li>
+  <li><code class="highlighter-rouge">FlowLayout</code></li>
+  <li><code class="highlighter-rouge">BoxLayout</code></li>
+  <li><code class="highlighter-rouge">GridBagLayout</code></li>
+</ul>
+
+<p><code class="highlighter-rouge">validate()</code> checks and fixes the layout when you change the components of an 
+already on-screen container. <code class="highlighter-rouge">repaint()</code> inherits from <code class="highlighter-rouge">Component.</code> It forces a 
+redraw of all components in the container. The <code class="highlighter-rouge">Pack()</code> method uses the
+preferred sizes.</p>
+
+<p>Each component has a <em>preferred size</em>.</p>
+
+<h2 id="other-important-notes">Other Important Notes</h2>
+
+<p>Surround the <code class="highlighter-rouge">Scanner</code> with <code class="highlighter-rouge">try</code>/<code class="highlighter-rouge">catch</code> block with <code class="highlighter-rouge">finally</code>. Catch the exception 
+<code class="highlighter-rouge">inputMismatchException</code>.</p>
+
+<p>Declare a public static final field for <code class="highlighter-rouge">Scanner</code> in <code class="highlighter-rouge">Registration</code> and pass 
+that to each method. <em>Do not</em> create multiple instances of <code class="highlighter-rouge">Scanner</code> because it
+will be incredibly messy and managing them all will be incredibly difficult.</p>
+
+<p>The next exam is on March 3rd.</p>
+
+    </main>
+  </div>
+  <script src="/TCSS-305/script.js"></script>
+</body>
+</html>

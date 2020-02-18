@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/TCSS-305/styles.css" />
+  <title>TCSS 305</title>
+</head>
+<body>
+  <div class="l-container">
+    <nav id="Nav" class="l-side" data-show-list="false">
+  <button id="NavButton" class="nav-button">&#8801;</button>
+  <ul id="NavList" class="nav-list">
+    <a href="/TCSS-305/index.html"
+         >
+      <li>Welcome</li>
+    </a>
+    
+      <a href="/TCSS-305/notes/Week-2.html"
+         >
+        <li>Week 2</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-3.html"
+         >
+        <li>Week 3</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-4.html"
+         >
+        <li>Week 4</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-5.html"
+         >
+        <li>Week 5</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-6.html"
+         
+          class="nav-item-current"
+         >
+        <li>Week 6</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-7.html"
+         >
+        <li>Week 7</li>
+      </a>
+    
+  </ul>
+</nav>
+    <main class="l-main">
+      
+        <h1 class="page-title">Week 6</h1>
+      
+      <h2 id="static-and-dynamic-binding">Static and Dynamic Binding</h2>
+
+<p><strong>Static binding</strong> is for overloaded methods while <strong>dynamic binding</strong> is for 
+overridden methods. Always keep in mind what class each object is. An instance
+of a child object can be declared as a type of the parent object. Whenever there are overloaded
+methods, you need to call the method that belongs to the <em>type</em> of the variable.
+Remember that overloaded methods will be called based on the parameters passed, 
+regardless of whichever class is being called. If you declare an object with a 
+parent class’s data type, but use the child class’s constructor, that object
+will only have access to the members of the parent class.</p>
+
+<p>You can always cast between hierarchies.</p>
+
+<p>If an object variable is declared as a parent class’s type,
+but is initialized with the child class’s constructor and the child class has an
+overridden method, when calling that method, the child class’s type will be used.
+Overloaded methods are called based on the object’s constructor while overridden
+methods are called based on the object’s declared data type.</p>
+
+<p>All that can be confusing, I know.</p>
+
+<h2 id="interfaces">Interfaces</h2>
+
+<p><strong>Interfaces</strong> are classes that contain only abstract methods. Interfaces are
+<strong>implemented</strong> by another class. The implementing class <em>must</em> define the 
+methods that were declared in the interface.</p>
+
+<p>Interfaces are defined with the
+keyword <code class="highlighter-rouge">interface</code>. Using the <code class="highlighter-rouge">abstract</code> keyword before each method of an
+interface is redundant. Do not use it. By default, fields are public, static,
+and final, so using the keywords <code class="highlighter-rouge">public</code>, <code class="highlighter-rouge">static</code>, and <code class="highlighter-rouge">final</code> is redundant.</p>
+
+<p>There are two other types of methods that can be a part of the interface. The
+first is a static method. The other is the default method. Both can be
+implemented. These methods cannot be reimplemented by the implementing class.
+You <em>cannot</em> create an object of an interface. You can only instantiate an
+object of an implementing class.</p>
+
+<p>Remember to use the <code class="highlighter-rouge">@Override</code> tag before each method’s definition in the 
+implementing class.</p>
+
+<p>Interfaces were introduced because Java only supports single inheritance. You
+can implement more than one interface. When you implement more than one
+interface, be sure to define all the methods from all of the interfaces.</p>
+
+<h2 id="other-important-notes">Other Important Notes</h2>
+
+<p>Test 2 will be on March 3rd. Most of it will be on content covered between test
+1 and test 2; however, there will be questions on content covered before test 1.</p>
+
+<p>For assignment 3, do not hard-code the ID for each vehicle. The ID should be 
+automatically generated.</p>
+
+<p>I was absent on Thursday due to illness, so I could not take very good notes.</p>
+
+    </main>
+  </div>
+  <script src="/TCSS-305/script.js"></script>
+</body>
+</html>

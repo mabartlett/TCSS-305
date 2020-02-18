@@ -38,6 +38,16 @@
         <li>Week 5</li>
       </a>
     
+      <a href="/TCSS-305/notes/Week-6.html"
+         >
+        <li>Week 6</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-7.html"
+         >
+        <li>Week 7</li>
+      </a>
+    
   </ul>
 </nav>
     <main class="l-main">
@@ -50,16 +60,16 @@
 set to default values. A copy constructor accepts another instance of the object 
 to create another copy of it. Constructors can be made private!</p>
 
-<p>Child objects never inherits constructors from the parent. Always call the 
+<p>Child objects never inherit constructors from the parent. Always call the 
 constructor of the parent with <code class="highlighter-rouge">super()</code> before writing any other code for the
-child element.</p>
+child object’s constructor.</p>
 
 <h2 id="static">Static</h2>
 
 <p>Members that are shared across all instances of an object are <code class="highlighter-rouge">static</code>. This
 means that for each instance, the <code class="highlighter-rouge">static</code> members will be stored in a common 
 location. These values will all be the same for each instance. When you access
-a static member, access it in a static way, i.e., using the <em>class</em> rather than
+a static member, access it in a static way, i.e., by using the <em>class</em> rather than
 a specific <em>instance</em>. You cannot access non-static fields inside a static 
 method. Never declare a field with <code class="highlighter-rouge">static</code> without <code class="highlighter-rouge">final</code>.</p>
 
@@ -123,7 +133,7 @@ equality are the same fields to check for their hash codes.</p>
 <p><code class="highlighter-rouge">Objects.requireNonNull(someObject)</code> prevents errors when trying to access 
 members of a null object.</p>
 
-<p>Any variable that is not changed within its scope, it should be declared with 
+<p>Any variable that is not changed within its scope should be declared with 
 <code class="highlighter-rouge">final</code>.</p>
 
 <p>Setting one object as pointing to another will return true when comparing the

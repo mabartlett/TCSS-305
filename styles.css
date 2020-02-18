@@ -27,14 +27,14 @@ pre { padding: 0.5rem; margin: 1rem 0; background-color: #e3e0e0; border-bottom:
 /* Layout */
 .l-side { position: fixed; box-sizing: border-box; width: 200px; height: 100%; background-color: #333; color: #ffffff; overflow-y: auto; }
 
-.l-main { position: absolute; left: 200px; padding: 1rem; max-width: calc(100% - 200px); box-sizing: border-box; background-color: #ffffff; }
+.l-main { position: absolute; left: 200px; padding: 1rem; width: calc(100% - 200px); box-sizing: border-box; background-color: #ffffff; }
 
 /* Modules */
 .nav-button { display: none; }
 
 .nav-list { list-style-type: none; border-bottom: 1px solid #666; }
 
-.nav-list li { padding: 1rem; border-top: 1px solid #666; border-bottom: 1px solid #111; }
+.nav-list li { padding: 0.75rem; border-top: 1px solid #666; border-bottom: 1px solid #111; }
 
 .nav-list li:hover { background-color: #555; text-shadow: 1px 1px #111; border-bottom: 1px solid #555; }
 
