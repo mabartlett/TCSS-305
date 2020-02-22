@@ -57,7 +57,7 @@
       <h2 id="gui-components">GUI Components</h2>
 
 <p>All GUI components need a <code class="highlighter-rouge">JFrame</code> object onto which the components will be
-displayed. Here is an example of creating a <code class="highlighter-rouge">JFrame</code>:</p>
+drawn. Here is an example of creating a <code class="highlighter-rouge">JFrame</code>:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>final JFrame window = new JFrame("Window Title");
 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,8 +66,8 @@ window.setVisible(true);
 window.setLayout(null);
 </code></pre></div></div>
 
-<p><strong>Panels</strong> are added to group components. You can add components to either the
-frame or to the panel with the <code class="highlighter-rouge">add(Component)</code> method. We set bounds of a
+<p><strong>Panels</strong> exist to put components into groups. You can add components either to
+the frame or to the panel with the <code class="highlighter-rouge">add(Component)</code> method. We set bounds of a
 component by using the <code class="highlighter-rouge">setBounds(x, y, width, height)</code> method.</p>
 
 <p>A <strong>label</strong> is a String that’s displayed somewhere for information or
@@ -94,31 +94,58 @@ object or else an error will be thrown.</p>
 <code class="highlighter-rouge">LayoutManager</code>s:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">BorderLayout</code>, which divides the container into 5 regions: NORTH, SOUTH, WEST,
-EAST, CENTER (all of which are constants of BorderLayout).</li>
-  <li><code class="highlighter-rouge">GridLayout</code></li>
-  <li><code class="highlighter-rouge">FlowLayout</code></li>
-  <li><code class="highlighter-rouge">BoxLayout</code></li>
+  <li><code class="highlighter-rouge">BorderLayout</code>, which divides the container into 5 regions: NORTH, SOUTH, 
+WEST, EAST, CENTER (all of which are constants of BorderLayout).</li>
+  <li><code class="highlighter-rouge">GridLayout</code>, which arranges the components into rows and columns like a
+table. It is instantiated with <code class="highlighter-rouge">GridLayout(int Rows, int Columns)</code>.</li>
+  <li><code class="highlighter-rouge">FlowLayout</code>, which is the default layout. It arranges the components in a
+sequence from left to right.</li>
+  <li><code class="highlighter-rouge">BoxLayout</code>, which ccomponents are arranged in a single row or column.</li>
   <li><code class="highlighter-rouge">GridBagLayout</code></li>
+  <li><code class="highlighter-rouge">CardLayout</code></li>
 </ul>
 
 <p><code class="highlighter-rouge">validate()</code> checks and fixes the layout when you change the components of an 
 already on-screen container. <code class="highlighter-rouge">repaint()</code> inherits from <code class="highlighter-rouge">Component.</code> It forces a 
-redraw of all components in the container. The <code class="highlighter-rouge">Pack()</code> method uses the
-preferred sizes.</p>
+redraw of all components in the container. The <code class="highlighter-rouge">pack()</code> method uses the
+preferred sizes. These are all methods of the <code class="highlighter-rouge">JFrame</code> class.</p>
 
-<p>Each component has a <em>preferred size</em>.</p>
+<p>Each component has a <em>preferred size</em>. The preferred size is the minimum amount
+of space required of a component.</p>
+
+<p>You can create <strong>composite layouts</strong> by using panels which each have their own
+layout.</p>
+
+<h2 id="jfilechooser">JFileChooser</h2>
+
+<p>JFileChooser is a special dialog box that allows the user to select a file. It
+has the following members:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">showOpenDialog(parent)</code></li>
+  <li><code class="highlighter-rouge">showSaveDialog(parent)</code></li>
+  <li><code class="highlighter-rouge">getSelectedFile()</code></li>
+  <li><code class="highlighter-rouge">APPROVE_OPTION</code> and <code class="highlighter-rouge">CANCEL_OPTION</code></li>
+</ul>
+
+<p>You must write your own code to display the opened file.</p>
 
 <h2 id="other-important-notes">Other Important Notes</h2>
 
-<p>Surround the <code class="highlighter-rouge">Scanner</code> with <code class="highlighter-rouge">try</code>/<code class="highlighter-rouge">catch</code> block with <code class="highlighter-rouge">finally</code>. Catch the exception 
-<code class="highlighter-rouge">inputMismatchException</code>.</p>
+<p>Surround the <code class="highlighter-rouge">Scanner</code> with <code class="highlighter-rouge">try</code>/<code class="highlighter-rouge">catch</code> block with <code class="highlighter-rouge">finally</code>. Catch the 
+exception <code class="highlighter-rouge">inputMismatchException</code>.</p>
 
-<p>Declare a public static final field for <code class="highlighter-rouge">Scanner</code> in <code class="highlighter-rouge">Registration</code> and pass 
+<p>For assignment 4, 
+declare a public static final field for <code class="highlighter-rouge">Scanner</code> in <code class="highlighter-rouge">Registration</code> and pass 
 that to each method. <em>Do not</em> create multiple instances of <code class="highlighter-rouge">Scanner</code> because it
 will be incredibly messy and managing them all will be incredibly difficult.</p>
 
 <p>The next exam is on March 3rd.</p>
+
+<p>Constructors should be defined in a class before any other functions.</p>
+
+<p>When instantiating maps, the type should be declared as <code class="highlighter-rouge">Map</code> but instantiated
+as a specific map like <code class="highlighter-rouge">HashMap</code>.</p>
 
     </main>
   </div>
