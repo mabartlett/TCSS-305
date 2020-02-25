@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/TCSS-305/styles.css" />
+  <title>TCSS 305</title>
+</head>
+<body>
+  <div class="l-container">
+    <nav id="Nav" class="l-side" data-show-list="false">
+  <button id="NavButton" class="nav-button">&#8801;</button>
+  <ul id="NavList" class="nav-list">
+    <a href="/TCSS-305/index.html"
+         >
+      <li>Welcome</li>
+    </a>
+    
+      <a href="/TCSS-305/notes/Week-2.html"
+         >
+        <li>Week 2</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-3.html"
+         >
+        <li>Week 3</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-4.html"
+         >
+        <li>Week 4</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-5.html"
+         >
+        <li>Week 5</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-6.html"
+         >
+        <li>Week 6</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-7.html"
+         >
+        <li>Week 7</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-8.html"
+         
+          class="nav-item-current"
+         >
+        <li>Week 8</li>
+      </a>
+    
+  </ul>
+</nav>
+    <main class="l-main">
+      
+        <h1 class="page-title">Week 8</h1>
+      
+      <h2 id="event-listening">Event Listening</h2>
+
+<p>Whenever a GUI component is attached to some functionality, we say that the 
+button is <strong>listening</strong> to an <strong>action event</strong>. The events are in 
+<code class="highlighter-rouge">java.util.EventAction</code>. There are specific action events tied to each
+components. <code class="highlighter-rouge">getActionCommand()</code> retuns a String that represents the event. An 
+<code class="highlighter-rouge">ActionListener</code> is an interface. It has one abstract method, which is
+<code class="highlighter-rouge">actionPerformed(ActionEvent evt)</code>. You have to create a new class for the
+listener before adding it to a component.</p>
+
+<p>Where should the listener class be defined? One solution is to use the GUI class
+as the <code class="highlighter-rouge">ActionListener</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class SomeGUIClass implements ActionListener
+JButton button = new JButton("A Button");
+button.addActionListener(this);
+</code></pre></div></div>
+
+<p>Another solution is to use an <strong>inner class</strong>, which means you define a class
+within another. You can only instantiate an object of the inner class after you
+have instantiated an object of the outer class:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>InnerClass innerObject = outerObject.new InnerClass(params)
+</code></pre></div></div>
+
+<p>You can also define a <em>local inner class</em>, which is when you define a class
+from inside a function. An <em>anonymous inner class</em> is defined without a name:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>button.addActionListener(new ActionListener() {
+    public void actionPerformed(final ActionEvent theEvent) {
+        theObject.doSomething();
+    }
+});
+</code></pre></div></div>
+
+<h2 id="mouse-listeners">Mouse Listeners</h2>
+
+<p><code class="highlighter-rouge">MouseListener</code> is the interface we implement to listen to <code class="highlighter-rouge">MouseEvent</code>s:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">mouseClicked()</code></li>
+  <li><code class="highlighter-rouge">mouseEntered()</code></li>
+  <li><code class="highlighter-rouge">mouseExited()</code></li>
+  <li><code class="highlighter-rouge">mousePressed()</code></li>
+  <li><code class="highlighter-rouge">mouseReleased()</code></li>
+</ul>
+
+<p><code class="highlighter-rouge">MouseAdapter</code> is a class that implements all five methods so you do not have to
+implement all five methods yourself. This saves you a lot of trouble!</p>
+
+<p><code class="highlighter-rouge">mouseDragged()</code> and <code class="highlighter-rouge">mouseMoved()</code> are defined in a different interface called
+<code class="highlighter-rouge">MouseMotionListener</code>. There also exists the <code class="highlighter-rouge">MouseMotionAdapter</code> class which 
+implements the mouse motion interface. For the mouse’s scroll-wheel, there is
+the <code class="highlighter-rouge">MouseWheelListener</code> interface, which declares the <code class="highlighter-rouge">mouseWheelMoved()</code>
+listener function. <code class="highlighter-rouge">MouseInputListener</code> is an interface which contains all the 
+methods inside <code class="highlighter-rouge">MouseListener</code> and <code class="highlighter-rouge">MouseMotionListener</code>. The best class to
+implement all three methods is <code class="highlighter-rouge">MouseInputAdapter</code>. This class is the king of
+them all because it provides empty implementations for all eight methods.</p>
+
+<h2 id="keyboard-listeners">Keyboard Listeners</h2>
+
+<p>Keyboard listening is much simpler than the mouse:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">keyPressed()</code></li>
+  <li><code class="highlighter-rouge">keyReleased()</code></li>
+  <li><code class="highlighter-rouge">keyTyped()</code></li>
+</ul>
+
+<p>The class that implements all three methods is the <code class="highlighter-rouge">KeyAdapter</code> class.</p>
+
+<p><code class="highlighter-rouge">KeyEvent</code> has public static fields, <strong>key codes</strong>, for every key that can be
+pressed. For example, <code class="highlighter-rouge">VK_A</code>,…, <code class="highlighter-rouge">VK_Z</code> represent the key codes for the 
+letters. <em>Every keyboard can have its own unique key codes.</em> <code class="highlighter-rouge">KeyEvent</code>
+contains the following methods:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">getKeyChar()</code></li>
+  <li><code class="highlighter-rouge">getKeyCode()</code></li>
+  <li><code class="highlighter-rouge">getModifiers()</code></li>
+  <li><code class="highlighter-rouge">isActionKey()</code></li>
+</ul>
+
+<h2 id="other-important-notes">Other Important Notes</h2>
+
+<p>If you hold down ctrl and click on a method in Eclipse, you will be taken to the
+function’s definition within the appropriate Java library.</p>
+
+<p><code class="highlighter-rouge">Integer.parseInt(someString)</code> converts a String to an integer. The sme functions
+exist for double and float.</p>
+
+<p><code class="highlighter-rouge">myTextArea.setEditable(false)</code> makes the textarea read-only.</p>
+
+<p>Other listeners include WindowListener, FocusListener, and HyperlinkListener.</p>
+
+    </main>
+  </div>
+  <script src="/TCSS-305/script.js"></script>
+</body>
+</html>

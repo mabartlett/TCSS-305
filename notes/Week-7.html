@@ -48,6 +48,11 @@
         <li>Week 7</li>
       </a>
     
+      <a href="/TCSS-305/notes/Week-8.html"
+         >
+        <li>Week 8</li>
+      </a>
+    
   </ul>
 </nav>
     <main class="l-main">
@@ -85,12 +90,15 @@ which simply dislays a message. The second is <code class="highlighter-rouge">sh
 displays a message and the buttons “yes”, “no”, and “cancel.” The third
 is <code class="highlighter-rouge">showInputDialog</code>, which displays a message as well as a text field for the 
 user to input text. The first argument for <code class="highlighter-rouge">JOptionPane</code> should be the JFrame
-object or else an error will be thrown.</p>
+object or else an error will be thrown. The first argument is the frame:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>JOptionPane.showMessageDialog(null, "Your message goes here.");
+</code></pre></div></div>
 
 <h2 id="layout-managers">Layout Managers</h2>
 
 <p>Absolute positioning is problematic and time-consuming, so we use the 
-<code class="highlighter-rouge">setLayout(LayoutManager)</code> method to set a <strong>layout manager</strong>. Here are the 
+<code class="highlighter-rouge">setLayout(new LayoutManager())</code> method to set a <strong>layout manager</strong>. Here are the 
 <code class="highlighter-rouge">LayoutManager</code>s:</p>
 
 <ul>
@@ -100,7 +108,7 @@ WEST, EAST, CENTER (all of which are constants of BorderLayout).</li>
 table. It is instantiated with <code class="highlighter-rouge">GridLayout(int Rows, int Columns)</code>.</li>
   <li><code class="highlighter-rouge">FlowLayout</code>, which is the default layout. It arranges the components in a
 sequence from left to right.</li>
-  <li><code class="highlighter-rouge">BoxLayout</code>, which ccomponents are arranged in a single row or column.</li>
+  <li><code class="highlighter-rouge">BoxLayout</code>, in which components are arranged in a single row or column.</li>
   <li><code class="highlighter-rouge">GridBagLayout</code></li>
   <li><code class="highlighter-rouge">CardLayout</code></li>
 </ul>
@@ -136,9 +144,9 @@ has the following members:</p>
 exception <code class="highlighter-rouge">inputMismatchException</code>.</p>
 
 <p>For assignment 4, 
-declare a public static final field for <code class="highlighter-rouge">Scanner</code> in <code class="highlighter-rouge">Registration</code> and pass 
+declare a <code class="highlighter-rouge">public static final</code> field for <code class="highlighter-rouge">Scanner</code> in <code class="highlighter-rouge">Registration</code> and pass 
 that to each method. <em>Do not</em> create multiple instances of <code class="highlighter-rouge">Scanner</code> because it
-will be incredibly messy and managing them all will be incredibly difficult.</p>
+will be quite messy and managing them all will be incredibly difficult.</p>
 
 <p>The next exam is on March 3rd.</p>
 
