@@ -24,6 +24,8 @@ code { font-family: "consolas", monospace; background-color: #e3e0e0; overflow-x
 
 pre { padding: 0.5rem; margin: 1rem 0; background-color: #e3e0e0; border-bottom: 1px solid #aaa; line-height: 1.25rem; overflow-x: auto; }
 
+strong { color: #db0a62; }
+
 /* Layout */
 .l-side { position: fixed; box-sizing: border-box; width: 200px; height: 100%; background-color: #333; color: #ffffff; overflow-y: auto; }
 
@@ -52,11 +54,13 @@ pre { padding: 0.5rem; margin: 1rem 0; background-color: #e3e0e0; border-bottom:
 
 /* Smaller Viewports */
 @media screen and (max-width: 840px) { * { font-size: 16px; }
+  .l-main { top: 2.25rem; left: 0; width: 100%; max-width: 100%; padding: 0.5rem; }
   .l-side { left: 0; top: 0; width: 100%; height: auto; z-index: 100; }
-  .nav-button { display: inline-block; float: right; margin-right: 0.5rem; padding: 0.125rem; padding-right: 0.25rem; border: 0; border-top: 2px solid transparent; font-size: 2rem; }
+  .page-title { margin: -0.5rem -0.5rem 1rem -0.5rem; }
+  .nav-button { display: inline-block; float: right; margin-right: 1rem; padding: 0.125rem; padding-right: 0.25rem; border: 0; border-top: 2px solid transparent; font-size: 2rem; }
   .l-side[data-show-list="false"] .nav-list { display: none; }
   .l-side[data-show-list="true"] .nav-list { display: block; }
   .nav-list li { padding: 0.5rem; }
-  .l-main { top: 2.25rem; left: 0; width: 100%; max-width: 100%; } }
+  pre code { font-size: 14px; line-height: 14px; } }
 
 /*# sourceMappingURL=styles.css.map */

@@ -64,7 +64,7 @@
 <p>Whenever a GUI component is attached to some functionality, we say that the 
 button is <strong>listening</strong> to an <strong>action event</strong>. The events are in 
 <code class="highlighter-rouge">java.util.EventAction</code>. There are specific action events tied to each
-components. <code class="highlighter-rouge">getActionCommand()</code> retuns a String that represents the event. An 
+components. <code class="highlighter-rouge">getActionCommand()</code> returns a String that represents the event. An
 <code class="highlighter-rouge">ActionListener</code> is an interface. It has one abstract method, which is
 <code class="highlighter-rouge">actionPerformed(ActionEvent evt)</code>. You have to create a new class for the
 listener before adding it to a component.</p>
@@ -72,9 +72,10 @@ listener before adding it to a component.</p>
 <p>Where should the listener class be defined? One solution is to use the GUI class
 as the <code class="highlighter-rouge">ActionListener</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class SomeGUIClass implements ActionListener
-JButton button = new JButton("A Button");
-button.addActionListener(this);
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class SomeGUIClass implements ActionListener {
+    JButton button = new JButton("A Button");
+    button.addActionListener(this);
+}
 </code></pre></div></div>
 
 <p>Another solution is to use an <strong>inner class</strong>, which means you define a class
@@ -88,6 +89,7 @@ have instantiated an object of the outer class:</p>
 from inside a function. An <em>anonymous inner class</em> is defined without a name:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>button.addActionListener(new ActionListener() {
+    @Override
     public void actionPerformed(final ActionEvent theEvent) {
         theObject.doSomething();
     }
@@ -142,10 +144,41 @@ contains the following methods:</p>
   <li><code class="highlighter-rouge">isActionKey()</code></li>
 </ul>
 
+<h2 id="review-for-test-2">Review for Test 2</h2>
+
+<p>The <code class="highlighter-rouge">comparable</code> interface provides natural ordering for objects and allows for
+sorting. You must override the <code class="highlighter-rouge">public int compareTo(Object obj)</code> method in 
+classes that implement <code class="highlighter-rouge">comparable</code>. Another important interface is <code class="highlighter-rouge">cloneable</code>.</p>
+
+<p>An <strong>encapsulation violation</strong> is when a client class is able to modify the 
+fields directly of another class. To make a copy of an instance, you must
+<strong>clone</strong> all the mutable fields by utilizing a <strong>defensive copy</strong> routine.
+The method that clones is called <code class="highlighter-rouge">clone()</code>. Be sure to cast the objects as the 
+appropriate classes. <em>An array or list of any object is always mutable.</em>
+Immutable objects include but are not limited to:</p>
+
+<ul>
+  <li>String</li>
+  <li>All eight wrapper classes</li>
+  <li>Enum</li>
+  <li>BigDecimal</li>
+  <li>Color</li>
+</ul>
+
+<p>Even if there is not an <code class="highlighter-rouge">@Override</code> tag, a method may still be overridden.</p>
+
+<p>Do not forget that Java does not support multiple inheritance. Do not confuse 
+overridden and overloaded methods. Overloaded method calls first look at the
+method signature. Then comes the binding. An overloaded function will always
+call the function attached to the data-type.</p>
+
+<p>The default layout for <code class="highlighter-rouge">JFrame</code> is border, while the default layout for a panel
+is flow.</p>
+
 <h2 id="other-important-notes">Other Important Notes</h2>
 
 <p>If you hold down ctrl and click on a method in Eclipse, you will be taken to the
-function’s definition within the appropriate Java library.</p>
+function’s definition within the appropriate Java library. Wow!</p>
 
 <p><code class="highlighter-rouge">Integer.parseInt(someString)</code> converts a String to an integer. The sme functions
 exist for double and float.</p>
@@ -153,6 +186,7 @@ exist for double and float.</p>
 <p><code class="highlighter-rouge">myTextArea.setEditable(false)</code> makes the textarea read-only.</p>
 
 <p>Other listeners include WindowListener, FocusListener, and HyperlinkListener.</p>
+
 
     </main>
   </div>
