@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/TCSS-305/styles.css" />
+  <title>TCSS 305</title>
+</head>
+<body>
+  <div class="l-container">
+    <nav id="Nav" class="l-side" data-show-list="false">
+  <button id="NavButton" class="nav-button">&#8801;</button>
+  <ul id="NavList" class="nav-list">
+    <a href="/TCSS-305/index.html"
+         >
+      <li>Welcome</li>
+    </a>
+    
+      <a href="/TCSS-305/notes/Week-2.html"
+         >
+        <li>Week 2</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-3.html"
+         >
+        <li>Week 3</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-4.html"
+         >
+        <li>Week 4</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-5.html"
+         >
+        <li>Week 5</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-6.html"
+         >
+        <li>Week 6</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-7.html"
+         >
+        <li>Week 7</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-8.html"
+         >
+        <li>Week 8</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-9.html"
+         
+          class="nav-item-current"
+         >
+        <li>Week 9</li>
+      </a>
+    
+  </ul>
+</nav>
+    <main class="l-main">
+      
+        <h1 class="page-title">Week 9</h1>
+      
+      <h2 id="more-gui-widgets">More GUI Widgets</h2>
+
+<p><strong>JFileChooser</strong> is a dialog box that lets the user pick a file. This widget is 
+explored more in-depth in Week 7. <strong>JColorChooser</strong> is a dialog box that lets 
+the user select a color from the palette. <strong>JMenuBar</strong> creates a top-level 
+container that holds menus. In JFrame, we use this method:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public void setJMenuBar(JMenuBar bar)
+</code></pre></div></div>
+
+<p>Every <code class="highlighter-rouge">JMenu</code> in the <code class="highlighter-rouge">JMenuBar</code> is going to contain <code class="highlighter-rouge">JMenuItems</code>. Here are the 
+<code class="highlighter-rouge">JMenu</code> methods:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">public JMenu(String text)</code></li>
+  <li><code class="highlighter-rouge">public void add(JMenuItem item)</code></li>
+  <li><code class="highlighter-rouge">public void addSeparator()</code></li>
+  <li><code class="highlighter-rouge">public void setMnemonic(int mnemonic)</code></li>
+  <li><code class="highlighter-rouge">setToolTipText(String text)</code></li>
+</ul>
+
+<p><code class="highlighter-rouge">JMenuItem</code> can be instantiated with the text, icon, and <strong>mnemonic</strong>. The mnemonic
+is the key that can be pressed to trigger the menu item selection. 
+Mnemonics will only work when the component is in focus; however, 
+<strong>accelerators</strong> work even when the componenent is not in focus:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(KeyStroke.getKeyStroke('V', keyEvent.CTRL_Mask));
+</code></pre></div></div>
+
+<p>Remember that Windows and MacOS have different accelerators! For Windows, it
+should be alt. For MacOS, it should be option + ctrl.</p>
+
+<p><strong>JToolBar</strong> is a container for GUI components. The toolbar can be moved around
+within a border layout. To add an image to the button that is in a toolbar, you
+must scale it down appropriately.</p>
+
+<h2 id="gui-component-methods">GUI Component Methods</h2>
+
+<p>The <code class="highlighter-rouge">setOpaque(boolean opaque)</code> method sets a GUI component to be opaque, i.e., 
+not transparent. Always make a frame’s content pane
+(<code class="highlighter-rouge">frame.setContentPane(---)</code>) opaque. <code class="highlighter-rouge">revalidate()</code> tells the layout manager 
+to recalculate the layout. <code class="highlighter-rouge">repaint()</code> repaints the component to see new 
+changes. Be sure to use these last two methods for Assignment 5.</p>
+
+<h2 id="2d-graphics">2D Graphics</h2>
+
+<p>If you want to draw something on the GUI, you need to use the <code class="highlighter-rouge">paintComponent</code>
+method, which is present in every JComponent class. Think of the <code class="highlighter-rouge">Jpanel</code> as a
+piece of paper and the <code class="highlighter-rouge">Graphics</code> object as your paintbrush. Do not confuse
+<code class="highlighter-rouge">paintComponent</code> with <code class="highlighter-rouge">paintComponents</code>! Always call the superclass’s 
+constructor. One <code class="highlighter-rouge">Graphics</code> object does all the drawing for the component. 
+It is always best to cast a <code class="highlighter-rouge">Graphics</code> object as a <code class="highlighter-rouge">Graphics2D</code> object.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Override
+public void paintComponent(final Graphics theGraphics) {
+    super.paintComponent(theGraphics);
+    final Graphics2D g2d = (Graphics2D) theGraphics;
+
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                         RenderingHints.VALUE_ANTIALIAS_ON);
+}
+</code></pre></div></div>
+
+<p>The code is pretty boilerplate, so don’t be afraid to copy and paste.</p>
+
+<p>Shapes are made like so:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>final Shape ellipse = new Ellipse2D.Double(10, 10, 50, 100);
+g2d.setPaint(Color.ORANGE);
+g2d.setStroke(new BasicStroke(STROKE_WIDTH));
+g2d.draw(ellipse);
+</code></pre></div></div>
+
+<p>Here are some shapes:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Rectangle2D.Double(x, y, height, width)</code></li>
+  <li><code class="highlighter-rouge">Ellipse2D.Double(x, y, height, width)</code></li>
+  <li><code class="highlighter-rouge">Line2D.Double(x1, y1, x2, y2)</code></li>
+  <li><code class="highlighter-rouge">Arc2D.Double(x, y, width, height, start, extend, int type)</code></li>
+</ul>
+
+<p>There also exist <code class="highlighter-rouge">.Float(---)</code> methods. The <code class="highlighter-rouge">Graphics2D</code> object is what will
+paint the shapes. Remember that an ellipse’s dimensions are based on its 
+<em>bounding rectangle</em>. You need to do <code class="highlighter-rouge">Graphics2DObject.fill(Shape shape)</code> if you 
+want to fill the shape with a color; otherwise, only the stroke will be visible.
+<code class="highlighter-rouge">BasicStroke</code> is the constructor for the basic form of the <code class="highlighter-rouge">Stroke</code> class. 
+Shape methods includes the following:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">getBounds()</code></li>
+  <li><code class="highlighter-rouge">getCenterX() / getCenterY()</code></li>
+  <li><code class="highlighter-rouge">getMinX() / getMinY()</code></li>
+  <li><code class="highlighter-rouge">getMaxX() / getMaxY()</code></li>
+  <li><code class="highlighter-rouge">intersects(double x, double y, double w, double h)</code></li>
+  <li><code class="highlighter-rouge">intersects(Rectangle2D r)</code> (which returns a boolean value)</li>
+</ul>
+
+<p>A <strong>Path2D</strong> is a series of line segments or curves. Its methods include:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">append(Shape s, boolean connect)</code></li>
+  <li><code class="highlighter-rouge">lineTo(float x, float y)</code></li>
+  <li><code class="highlighter-rouge">moveTo(float x, float y)</code></li>
+</ul>
+
+<h2 id="other-important-notes">Other Important Notes</h2>
+
+<p>Don’t forget about <strong>JToggleButton</strong>.</p>
+
+<p><code class="highlighter-rouge">group.clearSelection()</code> clears the selection of a button group.</p>
+
+<p><code class="highlighter-rouge">setText()</code> is the method for changing the text of a component.</p>
+
+<p>When you call <code class="highlighter-rouge">repaint()</code>, by default the paint component method is called, so
+<em>don’t ever call repaint inside paint component.</em> This will result in stack
+overflow.</p>
+
+<p><code class="highlighter-rouge">String...</code> in a parameter list means you can input <em>any</em> number of parameters.</p>
+
+    </main>
+  </div>
+  <script src="/TCSS-305/script.js"></script>
+</body>
+</html>
