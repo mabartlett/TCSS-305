@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/TCSS-305/styles.css" />
+  <title>TCSS 305</title>
+</head>
+<body>
+  <div class="l-container">
+    <nav id="Nav" class="l-side" data-show-list="false">
+  <button id="NavButton" class="nav-button">&#8801;</button>
+  <ul id="NavList" class="nav-list">
+    <a href="/TCSS-305/index.html"
+         >
+      <li>Welcome</li>
+    </a>
+    
+      <a href="/TCSS-305/notes/Week-2.html"
+         >
+        <li>Week 2</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-3.html"
+         >
+        <li>Week 3</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-4.html"
+         >
+        <li>Week 4</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-5.html"
+         >
+        <li>Week 5</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-6.html"
+         >
+        <li>Week 6</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-7.html"
+         >
+        <li>Week 7</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-8.html"
+         >
+        <li>Week 8</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-9.html"
+         >
+        <li>Week 9</li>
+      </a>
+    
+      <a href="/TCSS-305/notes/Week-10.html"
+         
+          class="nav-item-current"
+         >
+        <li>Week 10</li>
+      </a>
+    
+  </ul>
+</nav>
+    <main class="l-main">
+      
+        <h1 class="page-title">Week 10</h1>
+      
+      <h2 id="actionlistener-and-actioninterface">ActionListener and ActionInterface</h2>
+
+<p><code class="highlighter-rouge">ActionListener</code>s “listen” to <code class="highlighter-rouge">ActionEvent</code>s. It is common for UI 
+components to activate the same code. <code class="highlighter-rouge">ActionListener</code>s cannot save properties.</p>
+
+<p><code class="highlighter-rouge">ActionInterface</code> is an <code class="highlighter-rouge">ActionListener</code> with some properties. <code class="highlighter-rouge">actionPerformed</code>
+is <code class="highlighter-rouge">ActionListener</code>’s only method. <code class="highlighter-rouge">AbstractAction</code> implements <code class="highlighter-rouge">Action</code>.</p>
+
+<p>How do you add an action to a button instead of an action listener?</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class cutAction extends AbstractAction {
+    public CutAction() {
+        super("Cut", new ImageIcon("cut.gif"));
+    }
+    
+    public void actionPerformed(final ActionEvent theEvent) {
+        // Do the action
+    }
+}
+</code></pre></div></div>
+
+<p>Create an object of the action:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CutAction cut = new cutAction();
+JButton cutButton = new JButton(cut);
+</code></pre></div></div>
+
+<h2 id="timers">Timers</h2>
+
+<p><code class="highlighter-rouge">public Timer(int delay, ActionListener al)</code> is how you construct a <strong>Timer</strong> 
+object. The time is in milliseconds. The <code class="highlighter-rouge">Timer</code> object’s <code class="highlighter-rouge">initialDelay</code> runs
+only once. <code class="highlighter-rouge">setRepeats(boolean flag)</code> will allow the timer to run repeatedly.
+The timer does not start on its own. You must use the <code class="highlighter-rouge">start()</code> method. The
+following code will make a timer that calls <code class="highlighter-rouge">myActionListener</code> every 2 seconds:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Timer myTimer = new Timer(2000, myActionListener);
+</code></pre></div></div>
+
+<h2 id="lambda-expression">Lambda Expression</h2>
+
+<p>A <strong>lambda expression</strong> takes advantage of parallel processing capabilities. 
+They are essentially anonymous functions which implement a <strong>functional 
+interface</strong>. A functional interface is an interface with only one abstract
+method. Here is the syntax for a lambda expression.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(x, y) -&gt; x + y
+</code></pre></div></div>
+
+<p>The arrow operator <code class="highlighter-rouge">-&gt;</code> is read as “becomes.”</p>
+
+<h2 id="generic-classes">Generic Classes</h2>
+
+<p><strong>Generic classes</strong> are classes whose data types can be dynamic:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class GenericClass&lt;T&gt; {...}
+</code></pre></div></div>
+
+<p>When you create objects of a generic class, you need to specify what the data
+type is:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>final GenericClass&lt;Integer&gt; forty = new GenericClass&lt;Integer&gt;(40);
+</code></pre></div></div>
+
+<h2 id="streams">Streams</h2>
+
+<p>The <strong>stream</strong> API is much different from I/O streams. This stream processes 
+collections of data “on-the-fly,” i.e., the results are not stored in any
+variables. Like lambda expressions, streams take advantage of parallel
+processing capabilities. Here is how to create a stream:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>final Stream&lt;String&gt; streamEmpty = Stream.empty();
+</code></pre></div></div>
+
+<p>Here’s how you can use streams to turn an array of strings into a string:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public void createStreamFromArray() {
+    final String[] str = { "hi", "bye" };
+    // Here is one way:
+    Stream&lt;String&gt; strStream = Arrays.stream(str);
+    // Here is another way:
+    strStream = Stream.of("hi", "bye");
+}
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">iterate</code> method works similar to <code class="highlighter-rouge">generate</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Stream.iterate(30, x -&gt; x + 2).limit(3).forEach(System.out::println);
+</code></pre></div></div>
+
+<p>Streams have both <strong>intermediate operations</strong> and <strong>terminal operations</strong>. 
+Examples of intermediate operations include <code class="highlighter-rouge">iterate</code> and <code class="highlighter-rouge">generate</code>.</p>
+
+<p>Just like you have the <code class="highlighter-rouge">map</code> operation in streams, you have <code class="highlighter-rouge">skip</code>. When using
+<code class="highlighter-rouge">skip</code>, it “skips” the passed index of a collection. <code class="highlighter-rouge">allMatch</code> and <code class="highlighter-rouge">anyMatch</code>
+return boolean values that represent whether there is any object in the
+collection that match the object passed to the operation.</p>
+
+<h2 id="review-for-final">Review for Final</h2>
+
+<p>The final test will be online via Canvas at 10:10AM on March 19th. This week’s 
+in-class exercises will not be graded. It is an open-book test, but please do
+not simply Google the answers. It would be good to have pencil and paper on
+hand. It is a timed test and lasts for two hours. <em>You will not be asked to
+write code on the quiz.</em></p>
+
+<p>The client should not be able to make changes to the object without using
+constructor methods or setter methods. If a client can change the object, this
+is an encapsulation violation. When copying objects all you need to worry about are the mutable data
+types, of which <em>defensive copies</em> should be made. Do not worry about casting.
+Wrapper classes are immutable; however, arrays are always mutable, regardless of
+whatever data type it is composed of. Primitive types are immutable. Remember 
+that the <code class="highlighter-rouge">clone</code> method of a mutable class is sufficient to make a defensive 
+copy.</p>
+
+<p>Using the <code class="highlighter-rouge">==</code> for comparing objects compares the memory location of the
+objects. <code class="highlighter-rouge">hashCode</code> does not return the memory address of an object.</p>
+
+<p>Be sure to study 2D graphics! There will be a question on the final about it. 
+<code class="highlighter-rouge">repaint()</code> already calls the <code class="highlighter-rouge">paintComponent</code>, so <em>never</em> call <code class="highlighter-rouge">repaint</code> 
+from inside <code class="highlighter-rouge">paintComponent</code>. Doing so will create an infinite loop!</p>
+
+<p>Questions about streams will be on the final. I’d encourage you to take a look
+at the lecture slides. Timers will also be on the final.</p>
+
+<h2 id="other-important-notes">Other Important Notes</h2>
+
+<p>Please complete the course evaluation form. You have been emailed a link to it.</p>
+
+<p>Two colons (<code class="highlighter-rouge">::</code>) is called the <strong>scope-resolution operator</strong>.</p>
+
+<p>Chaining method calls directly after another is called <strong>pipelining</strong>.</p>
+
+    </main>
+  </div>
+  <script src="/TCSS-305/script.js"></script>
+</body>
+</html>
